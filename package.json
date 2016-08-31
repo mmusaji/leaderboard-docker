@@ -1,0 +1,40 @@
+{
+  "author": "Joshua Wilson",
+  "license": "Apache-2.0",
+  "name": "Scoreboard",
+  "version": "0.0.1",
+  "scripts": {
+    "build-sass": "node-sass styles/styles.scss build/styles.css",
+    "build-css": "npm run build-sass && postcss --config options.json",
+    "build-js": "browserify js/main.js -o build/bundle.js -dv",
+    "build-min-js": "browserify js/main.js | uglifyjs -o build/main.min.js",
+    "build-min-css": "cleancss styles/styles.css | gzip -9 -c > build/styles.css.gz",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-ify": "watchify js/main.js -o build/bundle.js -d",
+    "watch-js": "nodemon -e js -w js -x 'npm run build-js'",
+    "watch-css": "nodemon -e scss -w styles -x 'npm run build-css'",
+    "bs-sync": "browser-sync start --server --port 8084 --index index.html --browser 'google-chrome' --files '*.html' 'build'",
+    "build": "npm run build-js & npm run build-css",
+    "watch": "npm run watch-ify & npm run watch-css",
+    "start": "npm run watch-ify & npm run watch-css & npm run bs-sync"
+  },
+  "Dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "browser-sync": "latest",
+    "browserify": "13.x",
+    "clean-css": "latest",
+    "node-sass": "latest",
+    "nodemon": "latest",
+    "normalize.css": "^3.0.3",
+    "postcss-cachify": "latest",
+    "postcss-cli": "2.x",
+    "uglifyjs": "latest",
+    "watchify": "3.x"
+  },
+  "dependencies": {
+    "lodash": "^4.13.1",
+    "ractive": "^0.7.3",
+    "reconnectingwebsocket": "^1.0.0"
+  }
+}
