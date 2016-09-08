@@ -45,7 +45,7 @@ function setLeaders(leaders) {
 //var ws = new ReconnectingWebSocket('ws://localhost:9001/leaderboard');
 //var ws = new ReconnectingWebSocket('ws://gamebus-boards-production.apps-test.redhatkeynote.com/leaderboard');
 // var ws = new ReconnectingWebSocket('ws://localhost:9004/leaderboard');
-var ws = new ReconnectingWebSocket('ws://10.1.2.9:9004/leaderboard');
+var ws = new ReconnectingWebSocket('ws://10.1.2.9:8000/leaderboard');
 ws.onopen = function wsOpen() { console.log('websocket connection open'); };
 ws.onclose = function wsClose() { console.log('websocket connection closed'); };
 ws.onmessage = function wsMessage(msg) {
